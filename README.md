@@ -93,7 +93,7 @@ Before using this script, ensure that you:
 
 Running `adb shell cmd package list packages` will list all packages installed. This is the result of mine.
 
-| **Package Name**                                  | **Description**                                  | **Safety**      |
+| **Package Name**                                  | **Description**                                  | **Safe to Remove?**      |
 |---------------------------------------------------|--------------------------------------------------|-----------------|
 | `com.android.cts.priv.ctsshim`                   | CTS private shim for compatibility testing.      | ⚠️ Caution     |
 | `com.google.android.ext.services`                | Extended Google services.                        | ⚠️ Caution     |
