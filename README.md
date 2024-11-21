@@ -61,16 +61,6 @@ Before using this script, ensure that you:
 
 ---
 
-## Features
-
-- **Dry Run Mode**:  
-  Use the `--dry-run` option to simulate the process without making any changes. This allows you to review the list of apps before actually uninstalling them.
-  
-- **Logs**:  
-  The script generates a log file with the output of the debloating process. This can help you track actions or troubleshoot if something goes wrong.
-
----
-
 ## Script Overview
 
 ### 1. **Check for ADB**  
