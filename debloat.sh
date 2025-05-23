@@ -91,6 +91,13 @@ bloat+=("com.android.providers.calendar")
 bloat+=("com.android.providers.contacts")
 bloat+=("com.android.providers.userdictionary")
 
+
+# Other PERSO useless apps
+bloat+=("com.netflix.ninja") # Netflix
+bloat+=("tv.wuaki.apptv") # Rakuten TV
+bloat+=("com.amazon.amazonvideo.livingroom") # Prime Video
+bloat+=("com.tcl.waterfall.overseas") # TCL Channel
+
 # Optional: Include more TCL apps if you are sure they aren’t needed
 #bloat+=("com.tcl.framework.custom") # TV UI elements
 #bloat+=("com.tcl.tv") # Might be critical for TV operations, proceed with caution
