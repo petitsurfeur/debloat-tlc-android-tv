@@ -25,28 +25,35 @@ echo "Successfully connected to TV at IP: $TV_IP."
 # Bloatware list - safe to remove apps
 bloat=()
 
+# Other PERSO useless apps
+bloat+=("com.netflix.ninja") # Netflix
+bloat+=("tv.wuaki.apptv") # Rakuten TV
+bloat+=("com.amazon.amazonvideo.livingroom") # Prime Video
+bloat+=("com.tcl.waterfall.overseas") # TCL Channel
+
+
 # TCL-specific bloatware that can be removed (checked for non-critical apps)
 bloat+=("com.tcl.partnercustomizer")
-bloat+=("com.tcl.smartalexa") # Alexa integration for TV controls
+#bloat+=("com.tcl.smartalexa") # Alexa integration for TV controls
 bloat+=("com.tcl.gallery") # Gallery app
 bloat+=("com.tcl.notereminder") # Notes and reminders app
-bloat+=("com.tcl.ui_mediaCenter") # USB File explorer app
+#bloat+=("com.tcl.ui_mediaCenter") # USB File explorer app
 bloat+=("com.tcl.messagebox")
 bloat+=("com.tcl.guard") # Shitty "antivirus"
 bloat+=("com.tcl.tvweishi") # Homescreen service for shitty "antivirus"
 bloat+=("com.tcl.dashboard")
 bloat+=("com.tcl.tv.tclhome_master")
 bloat+=("com.tcl.copydatatotv")
-bloat+=("com.tcl.initsetup")
+#bloat+=("com.tcl.initsetup")
 bloat+=("com.tcl.usercenter")
-bloat+=("com.tcl.externaldevice.update")
+#bloat+=("com.tcl.externaldevice.update")
 bloat+=("com.tcl.useragreement")
 bloat+=("com.tcl.appstatecontroller")
 bloat+=("com.tcl.videoplayer")
 bloat+=("com.tcl.pvr.pvrplayer")
-bloat+=("com.tcl.versionUpdateApp")
+#bloat+=("com.tcl.versionUpdateApp")
 bloat+=("com.tcl.assistant")
-bloat+=("com.tcl.system.server")
+#bloat+=("com.tcl.system.server")
 bloat+=("com.tcl.ext.services")
 bloat+=("com.tcl.bootadservice") # Ads within TCL apps
 bloat+=("com.tcl.esticker")
@@ -54,7 +61,7 @@ bloat+=("com.tcl.bi")
 bloat+=("com.tcl.xian.StartandroidService")
 bloat+=("com.tcl.miracast")
 bloat+=("com.tcl.imageplayer")
-bloat+=("com.tcl.rc.ota") # OTA update service for non-critical updates
+#bloat+=("com.tcl.rc.ota") # OTA update service for non-critical updates
 
 # Freeview apps (could be useful for some users, but often considered bloat)
 bloat+=("uk.co.freeview.mdsclient")
@@ -92,12 +99,6 @@ bloat+=("com.android.providers.contacts")
 bloat+=("com.android.providers.userdictionary")
 
 
-# Other PERSO useless apps
-bloat+=("com.netflix.ninja") # Netflix
-bloat+=("tv.wuaki.apptv") # Rakuten TV
-bloat+=("com.amazon.amazonvideo.livingroom") # Prime Video
-bloat+=("com.tcl.waterfall.overseas") # TCL Channel
-
 # Optional: Include more TCL apps if you are sure they aren’t needed
 #bloat+=("com.tcl.framework.custom") # TV UI elements
 #bloat+=("com.tcl.tv") # Might be critical for TV operations, proceed with caution
@@ -107,6 +108,7 @@ echo "Starting debloating process... Removing unwanted apps."
 
 for package in "${bloat[@]}"; do
     echo "Removing package: $package..."
+    #adb shell cmd package install-existing $package  # Uncomment this to reinstall everything you uninstalled
     adb shell pm uninstall --user 0 "$package" 
     if [ $? -eq 0 ]; then
         echo "Successfully removed: $package"
